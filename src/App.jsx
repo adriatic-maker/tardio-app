@@ -131,7 +131,7 @@ const getSectionLabel = (sec, lang, trans) => {
 };
 
 async function callAI(system, user, max=1000) {
-  const r = await fetch("https://api.anthropic.com/v1/messages", {
+  const r = await fetch("/api/claude", {
     method:"POST",
     headers:{"Content-Type":"application/json","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
     body:JSON.stringify({ model:"claude-sonnet-4-6", max_tokens:max, system, messages:[{role:"user",content:user}] })
